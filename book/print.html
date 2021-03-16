@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> How it works</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Message-flow.html"><strong aria-hidden="true">1.1.</strong> Message flow</a></li></ol></li><li class="chapter-item expanded "><a href="Protocol.html"><strong aria-hidden="true">2.</strong> Protocol description</a></li><li class="chapter-item expanded "><a href="API.html"><strong aria-hidden="true">3.</strong> Frontend API</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Hole.html"><strong aria-hidden="true">1.</strong> How it works</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Message-flow.html"><strong aria-hidden="true">1.1.</strong> Message flow</a></li></ol></li><li class="chapter-item expanded "><a href="Protocol.html"><strong aria-hidden="true">2.</strong> Protocol description</a></li><li class="chapter-item expanded "><a href="API.html"><strong aria-hidden="true">3.</strong> Frontend API</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,7 +165,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <h1 id="hole-chat"><a class="header" href="#hole-chat">Hole chat</a></h1>
 <h1 id="message-flow"><a class="header" href="#message-flow">Message flow</a></h1>
 <p><em>(pseudocode in Bash style)</em></p>
 <p>Hole receiving messages by looking for new items in &quot;user's bin&quot; (place where new messages arrives). Because of how freenet works, we can't just say &quot;Hey! Do I have new messages?&quot;, we can specify messages index like: &quot;Hey! Gimme 15th message&quot;. Thus we must remember previous message index and to receive the new message we're requesting for 16th message, if we was able to get 15th message.</p>
