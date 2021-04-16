@@ -1,30 +1,30 @@
 # Hole Frontend API
 
-## Loginning and Registration
+<!-- ## Loginning and Registration -->
 
-### Registration request
-On base of password will be generted keypair for signing and keypair for encoding.
-``` json
-    {
-    request_type: "registration",
-    username: "user",
-    password: "passwd123",
-    }
-```
+<!-- ### Registration request -->
+<!-- On base of password will be generted keypair for signing and keypair for encoding. -->
+<!-- ``` json -->
+<!--     { -->
+<!--     request_type: "registration", -->
+<!--     username: "user", -->
+<!--     password: "passwd123", -->
+<!--     } -->
+<!-- ``` -->
 
 
-### Login request
-```json
-    {
-    request_type: login,
-    username: "name",
-    decode_key: "key",
-    sign_key: "key",
-    }
-```
+<!-- ### Login request -->
+<!-- ```json -->
+<!--     { -->
+<!--     request_type: login, -->
+<!--     username: "name", -->
+<!--     decode_key: "key", -->
+<!--     sign_key: "key", -->
+<!--     } -->
+<!-- ``` -->
 
-## Adding friends
-Each user have :w
+<!-- ## Adding friends -->
+<!-- Each user have :w -->
 
 ----
 
@@ -56,47 +56,47 @@ pub enum Request {
 ## `StartApp`
 Require when when client started.
 ``` json
-    {
+{
      type: "startApp"
-    }
+}
 ```
 
 ## `StopApp`
 ``` json
-    {
+{
     type: "stopApp"
-    }
+}
 ```
 ## `LoadUsers`
 ``` json
-    {
+{
     type: "loadUsers"
-    }
+}
 ```
 ## `SendMessage`
 ``` json
-    {
+{
     type: "sendMessage",
     userId: "UUID_V4...",
     message: "hellow world"
-    }
+}
 ```
 ## `AddUser`
 ``` json
-    {
+{
     type: "addUser",
     name: "username",
     signKey: "USK@key...",
     insertKey: "insertkey..."
-    }
+}
 ```
 ## `LoadMessages`
 Requesting `count` messages from `userId` started from `startIndex`'s message
 ``` json
-    {
+{
     type: "loadMessages",
     userId: "UUID_V4...",
     count: 10,
     startIndex: 30
-    }
+}
 ```

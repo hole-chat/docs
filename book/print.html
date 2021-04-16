@@ -204,25 +204,92 @@ EndMessage
 <h2 id="adding-friend"><a class="header" href="#adding-friend">Adding friend</a></h2>
 <p>Hole generates file, which alice have to send to bob somehow, and bob have to do the same. This file will contain unique ID and two keys</p>
 <h1 id="hole-frontend-api"><a class="header" href="#hole-frontend-api">Hole Frontend API</a></h1>
-<h2 id="loginning-and-registration"><a class="header" href="#loginning-and-registration">Loginning and Registration</a></h2>
-<h3 id="registration-request"><a class="header" href="#registration-request">Registration request</a></h3>
-<p>On base of password will be generted keypair for signing and keypair for encoding.</p>
-<pre><code class="language-json">    {
-    request_type: &quot;registration&quot;,
-    username: &quot;user&quot;,
-    password: &quot;passwd123&quot;,
-    }
+<!-- ## Loginning and Registration -->
+<!-- ### Registration request -->
+<!-- On base of password will be generted keypair for signing and keypair for encoding. -->
+<!-- ``` json -->
+<!--     { -->
+<!--     request_type: "registration", -->
+<!--     username: "user", -->
+<!--     password: "passwd123", -->
+<!--     } -->
+<!-- ``` -->
+<!-- ### Login request -->
+<!-- ```json -->
+<!--     { -->
+<!--     request_type: login, -->
+<!--     username: "name", -->
+<!--     decode_key: "key", -->
+<!--     sign_key: "key", -->
+<!--     } -->
+<!-- ``` -->
+<!-- ## Adding friends -->
+<!-- Each user have :w -->
+<hr />
+<h1 id="requests"><a class="header" href="#requests">Requests</a></h1>
+<pre><code class="language-Rust">pub enum Request {
+    StartApp,
+        StopApp,
+        LoadUsers,
+        #[serde(rename_all = &quot;camelCase&quot;)]
+        SendMessage {
+            user_id: Id,
+            message: String,
+        },
+        #[serde(rename_all = &quot;camelCase&quot;)]
+        LoadMessages {
+            user_id: Id,
+            count: u32,
+            start_index: u32,
+        },
+        #[serde(rename_all = &quot;camelCase&quot;)]
+        AddUser {
+            name: String,
+            sign_key: String,
+            insert_key: String,
+        }, //    CreateInstance TODO v0.3
+}
 </code></pre>
-<h3 id="login-request"><a class="header" href="#login-request">Login request</a></h3>
-<pre><code class="language-json">    {
-    request_type: login,
-    username: &quot;name&quot;,
-    decode_key: &quot;key&quot;,
-    sign_key: &quot;key&quot;,
-    }
+<h2 id="startapp"><a class="header" href="#startapp"><code>StartApp</code></a></h2>
+<p>Require when when client started.</p>
+<pre><code class="language-json">{
+     type: &quot;startApp&quot;
+}
 </code></pre>
-<h2 id="adding-friends"><a class="header" href="#adding-friends">Adding friends</a></h2>
-<p>Each user have :w</p>
+<h2 id="stopapp"><a class="header" href="#stopapp"><code>StopApp</code></a></h2>
+<pre><code class="language-json">{
+    type: &quot;stopApp&quot;
+}
+</code></pre>
+<h2 id="loadusers"><a class="header" href="#loadusers"><code>LoadUsers</code></a></h2>
+<pre><code class="language-json">{
+    type: &quot;loadUsers&quot;
+}
+</code></pre>
+<h2 id="sendmessage"><a class="header" href="#sendmessage"><code>SendMessage</code></a></h2>
+<pre><code class="language-json">{
+    type: &quot;sendMessage&quot;,
+    userId: &quot;UUID_V4...&quot;,
+    message: &quot;hellow world&quot;
+}
+</code></pre>
+<h2 id="adduser"><a class="header" href="#adduser"><code>AddUser</code></a></h2>
+<pre><code class="language-json">{
+    type: &quot;addUser&quot;,
+    name: &quot;username&quot;,
+    signKey: &quot;USK@key...&quot;,
+    insertKey: &quot;insertkey...&quot;
+}
+</code></pre>
+<h2 id="loadmessages"><a class="header" href="#loadmessages"><code>LoadMessages</code></a></h2>
+<p>Requesting <code>count</code> messages from <code>userId</code> started from <code>startIndex</code>'s message</p>
+<pre><code class="language-json">{
+    type: &quot;loadMessages&quot;,
+    userId: &quot;UUID_V4...&quot;,
+    count: 10,
+    startIndex: 30
+}
+</code></pre>
 
                     </main>
 
