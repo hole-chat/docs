@@ -28,6 +28,19 @@
 
 ----
 
+# Message type
+``` json
+    {
+    message: it's a message,
+    date: Time,
+    id: Id,
+    fromMe: bool,
+}
+    }
+```
+
+---
+
 # Requests 
 ``` Rust
 pub enum Request {
@@ -100,3 +113,4 @@ Requesting `count` messages from `userId` started from `startIndex`'s message
     startIndex: 30
 }
 ```
+
